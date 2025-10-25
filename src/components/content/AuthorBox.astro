@@ -1,0 +1,45 @@
+---
+interface Props {
+  author: {
+    name?: string;
+    credentials?: string;
+    bio?: string;
+    image?: string;
+    socialLinks?: Array<{
+      platform: 'twitter' | 'linkedin' | 'github' | 'website';
+      url: string;
+    }>;
+  };
+}
+
+const { author } = Astro.props;
+const photo = author.image || '/images/authors/brennan-brown.JPG';
+const name = author.name || 'Author';
+---
+
+<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+  <img
+    src={photo}
+    alt={name}
+    width="96"
+    height="96"
+    class="h-24 w-24 rounded-full border object-cover object-center border-slate-200 dark:border-slate-800"
+    loading="lazy"
+  />
+  <div class="flex-1">
+    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">{name}</h3>
+    {author.credentials && <p class="text-sm text-slate-600 dark:text-slate-400">{author.credentials}</p>}
+    {author.bio && <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">{author.bio}</p>}
+    {author.socialLinks && (
+      <ul class="mt-3 flex flex-wrap gap-3 text-sm text-slate-600 dark:text-slate-300">
+        {author.socialLinks.map((link) => (
+          <li>
+            <a href={link.url} rel="noopener" class="transition hover:text-slate-900 dark:hover:text-white">
+              {link.platform}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
