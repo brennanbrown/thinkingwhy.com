@@ -1,0 +1,125 @@
+---
+// src/components/ui/Header.astro
+import { SITE_TITLE, SITE_TAGLINE } from '../../consts.js';
+import MobileMenu from './MobileMenu.astro';
+import { navigation } from '../../data/navigation.js';
+
+// mobile menu is handled via DOM in MobileMenu.astro
+---
+
+<header class="bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center">
+        <a href="/" class="flex-shrink-0 flex items-center">
+          <div>
+            <span class="font-bold text-xl text-slate-900 block">{SITE_TITLE}</span>
+            <span class="text-sm text-slate-600 block">{SITE_TAGLINE}</span>
+          </div>
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex space-x-8">
+        {navigation.map(item => (
+          <div class="relative">
+            {!item.children ? (
+              <a 
+                href={item.href} 
+                class="text-slate-700 hover:text-amber-600 font-medium flex items-center"
+              >
+                <i class={`fas ${item.icon} mr-2`}></i>
+                {item.name}
+              </a>
+            ) : (
+              <div class="relative group">
+                <button class="text-slate-700 hover:text-amber-600 font-medium flex items-center">
+                  <i class={`fas ${item.icon} mr-2`}></i>
+                  {item.name}
+                  <svg class="ml-1 h-5 w-5 text-slate-400 group-hover:text-amber-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <div class="absolute z-10 -ml-4 mt-3 transform px-2 w-64 max-w-md sm:px-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-in-out">
+                  <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                      {item.children.map(child => (
+                        <a href={child.href} class="-m-3 p-3 block hover:bg-slate-50 rounded-md flex items-center">
+                          <i class={`fas ${child.icon} mr-3 text-amber-600`}></i>
+                          <p class="text-base font-medium text-slate-900">
+                            {child.name}
+                          </p>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
+      
+      <div class="flex items-center gap-3 md:gap-4">
+        <button id="theme-toggle" class="hidden md:inline-flex text-slate-700 hover:text-amber-600" aria-label="Toggle theme">
+          <!-- Moon (shown in light mode) -->
+          <svg id="icon-moon-desktop" class="h-5 w-5 block dark:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          <!-- Sun (shown in dark mode) -->
+          <svg id="icon-sun-desktop" class="h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.657 6.343l1.414 1.414M4.929 4.929l1.414 1.414m0 11.314l-1.414 1.414M18.071 6.343l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button id="theme-toggle-mobile" class="md:hidden text-slate-700 hover:text-amber-600" aria-label="Toggle theme">
+          <!-- Moon (light) -->
+          <svg id="icon-moon-mobile" class="h-6 w-6 block dark:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          <!-- Sun (dark) -->
+          <svg id="icon-sun-mobile" class="h-6 w-6 hidden dark:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.657 6.343l1.414 1.414M4.929 4.929l1.414 1.414m0 11.314l-1.414 1.414M18.071 6.343l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      
+      <div class="md:hidden">
+        <button 
+          class="text-slate-700 hover:text-amber-600" 
+          id="open-mobile-menu"
+        >
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<MobileMenu />
+
+<!-- Mobile menu behavior is handled inside MobileMenu.astro -->
+<script>
+  (function(){
+    function setTheme(mode){
+      try {
+        if(mode === 'dark'){
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme','dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme','light');
+        }
+      } catch(e){}
+    }
+    function toggleTheme(){
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    }
+    const buttons = [
+      document.getElementById('theme-toggle'),
+      document.getElementById('theme-toggle-mobile')
+    ];
+    buttons.forEach(btn => btn && btn.addEventListener('click', toggleTheme));
+  })();
+</script>
