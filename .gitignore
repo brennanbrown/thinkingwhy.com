@@ -1,0 +1,52 @@
+### Node/JS dependencies
+node_modules/
+
+### Build output
+dist/
+.astro/
+
+### Caches
+.cache/
+.vite/
+.eslintcache
+.prettier-cache/
+
+### Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+### OS/Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+### Environment files
+.env
+.env.local
+.env.*.local
+
+### Coverage
+coverage/
+.nyc_output/
+
+### TypeScript
+*.tsbuildinfo
+
+### Platform/hosting
+.vercel
+.netlify
+
+### Misc project artifacts
+*.tgz
+tmp/
+temp/
+
+### Large generated reports (keep out of git)
+lighthouse-report.json
+logs_result.csv
