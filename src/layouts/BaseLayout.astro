@@ -1,0 +1,106 @@
+---
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+import HeaderAd from '../components/ads/HeaderAd.astro';
+import FooterAd from '../components/ads/FooterAd.astro';
+import WebsiteSchema from '../components/seo/WebsiteSchema.astro';
+import Analytics from '../components/analytics/Analytics.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { children, title, description, ogImage } = Astro.props as Props;
+const siteUrl = (Astro.site && Astro.site.toString()) || 'https://thinkingwhy.com';
+const canonical = Astro.url ? new URL(Astro.url.pathname + Astro.url.search, siteUrl).toString() : siteUrl;
+const metaTitle = title ? `${title} | ThinkingWhy` : 'ThinkingWhy - Question Everything. Understand More.';
+const metaDescription = description || 'ThinkingWhy explores the deeper questions behind technology, finance, health, and life—clear answers to complex topics.';
+const ogImageDefault = '/favicons/favicon-256x256.png';
+const ogImageMeta = ogImage || ogImageDefault;
+const adsClient = import.meta.env.PUBLIC_ADSENSE_ID;
+const adsAccount = adsClient || 'ca-pub-3055500016021139';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        const ls = localStorage.getItem('theme');
+        const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (ls === 'dark' || (!ls && preferDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription} />
+  <link rel="canonical" href={canonical} />
+  <meta name="google-adsense-account" content={adsAccount} />
+  
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="ThinkingWhy" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageMeta} />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={metaTitle} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={ogImageMeta} />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Favicons -->
+  <link rel="icon" href="/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/favicons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/favicons/favicon-256x256.png">
+  <link rel="apple-touch-icon" href="/favicons/favicon-180x180.png">
+  
+  <!-- Image optimization -->
+  <style>
+    img {
+      content-visibility: auto;
+    }
+  </style>
+  <WebsiteSchema url={(Astro.site && Astro.site.toString()) || 'https://thinkingwhy.com'} name="ThinkingWhy" />
+  <script
+    async
+    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsAccount}`}
+    crossorigin="anonymous">
+  </script>
+ </head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <div class="min-h-screen flex flex-col">
+    <Header />
+    <HeaderAd />
+    
+    <main class="flex-1 bg-white dark:bg-slate-950">
+      <div class="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
+        <slot />
+      </div>
+    </main>
+    
+    <FooterAd />
+    <Footer />
+  </div>
+  <Analytics />
+</body>
+</html>
