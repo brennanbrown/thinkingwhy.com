@@ -1,0 +1,7 @@
+| Platform | Search Frequency | Average Citations Per Response | Most Cited Content Types | Query Length Average | Top Industries Searched | Best Optimization Strategy |
+|-------------|------------------|-------------------------------|-------------------------|---------------------|------------------------|---------------------------|
+| ChatGPT | 31% of prompts | 10.42 links | Blogs (60-65%), Reddit (7%), Wikipedia (5%) | 5.48 words (with search) | Education, Tech, Local services | Authoritative content, FAQ format, current data |
+| Perplexity | Most queries | 5.01 links | Blogs, Reddit (46%), Niche sites | 4-6 words | Tech, Finance, Shopping | Recent sources, quotable statements, inline citations |
+| Google Overviews | 7-13% of queries | 13+ citations | Blogs, Forums, Reddit (21%) | 4-5 words | Health, Finance, Shopping | Structured content, E-E-A-T signals, comprehensive answers |
+| Gemini | Variable | 7-8 citations | Blogs, Product pages, Forums | 4-6 words | General knowledge, Products | Detailed methodology, balanced viewpoints |
+| Copilot | Most queries | 3.13 links | News sites, Blogs, Official sources | 4-5 words | Professional, Enterprise topics | Professional tone, trusted sources |
