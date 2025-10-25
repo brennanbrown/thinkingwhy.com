@@ -1,0 +1,32 @@
+---
+// src/pages/cryptocurrency/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Cryptocurrency & Blockchain Insights";
+const pageDescription = "Analysis of digital assets, blockchain technology, and decentralized finance ecosystems.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Navigate the complex world of cryptocurrencies with our analytical approach. We cover:
+        </p>
+        <ul>
+          <li>Blockchain technology fundamentals</li>
+          <li>Cryptocurrency investment strategies</li>
+          <li>DeFi ecosystem analysis</li>
+          <li>Regulatory developments</li>
+          <li>Market trend forecasting</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>
