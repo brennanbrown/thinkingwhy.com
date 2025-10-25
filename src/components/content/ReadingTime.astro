@@ -1,0 +1,23 @@
+---
+import { estimateReadingTime } from '../../utils/readingTime';
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props as Props;
+const reading = estimateReadingTime(content);
+---
+
+<span class="inline-flex items-center gap-1 text-sm text-slate-400">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class="h-4 w-4"
+    aria-hidden="true"
+  >
+    <path d="M12 6a1 1 0 0 1 1 1v4.382l2.447 2.447a1 1 0 1 1-1.414 1.414l-2.74-2.74A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1Zm0-4a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8Z" />
+  </svg>
+  {reading.minutes} min read
+</span>
