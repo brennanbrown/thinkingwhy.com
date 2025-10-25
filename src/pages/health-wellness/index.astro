@@ -1,0 +1,32 @@
+---
+// src/pages/health-wellness/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Health & Wellness Guidance";
+const pageDescription = "Science-backed approaches to physical and mental wellbeing for optimal performance.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px=6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Your trusted resource for evidence-based health information. We explore:
+        </p>
+        <ul>
+          <li>Nutrition science and dietary frameworks</li>
+          <li>Exercise physiology and training methodologies</li>
+          <li>Mental health maintenance strategies</li>
+          <li>Preventative healthcare approaches</li>
+          <li>Wellness technology and biohacking</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+// src/pages/saas-reviews/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Software & SaaS Reviews";
+const pageDescription = "Unbiased, in-depth analysis of business and productivity software solutions.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Cut through the marketing hype with our technical software evaluations. We examine:
+        </p>
+        <ul>
+          <li>Enterprise software solutions</li>
+          <li>Productivity tool comparisons</li>
+          <li>Developer tooling ecosystems</li>
+          <li>Pricing model analysis</li>
+          <li>Implementation best practices</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+// src/pages/[niche]/[slug].astro
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getCollection } from 'astro:content';
+
+const { niche, slug } = Astro.params;
+
+// Get the post based on the niche and slug
+const posts = await getCollection(niche);
+const post = posts.find(p => p.slug === slug);
+
+if (!post) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not found'
+  });
+}
+
+const { Content } = await post.render();
+const url = new URL(Astro.url.pathname, Astro.url.origin).toString();
+---
+
+<BlogPostLayout post={post.data} content={Content} url={url}>
+  <Content />
+</BlogPostLayout>

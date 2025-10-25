@@ -1,0 +1,51 @@
+---
+// src/pages/digital-marketing/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+
+const pageTitle = "Digital Marketing & SEO Insights";
+const pageDescription = "Data-driven strategies, case studies, and the latest trends in digital marketing and search engine optimization.";
+
+const posts = await getCollection('blog', ({ data }) => data.category === 'Digital Marketing & SEO');
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Digital Marketing & SEO', url: '/digital-marketing/' }]} />
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Welcome to our Digital Marketing & SEO hub. Here we explore:
+        </p>
+        <ul>
+          <li>Algorithm updates and their real-world impact</li>
+          <li>Content strategies that outperform the competition</li>
+          <li>Data-backed growth tactics for organic traffic</li>
+          <li>Emerging trends in social media marketing</li>
+          <li>Conversion rate optimization techniques</li>
+        </ul>
+        
+        <h2>Why This Category Matters</h2>
+        <p>
+          Search and social are shifting toward AI‑mediated discovery. We cover what actually improves visibility across classic SERPs and AI answers—from structured content and schema to distribution playbooks that compound.
+        </p>
+        <p>
+          Expect teardown‑level guides, analytics frameworks, and repeatable experiments focused on revenue, not vanity metrics.
+        </p>
+        
+        <h2>Latest Articles</h2>
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              <span class="ml-2 text-sm text-slate-500">{new Date(post.data.pubDate).toLocaleDateString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

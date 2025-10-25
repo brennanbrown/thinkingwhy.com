@@ -1,0 +1,51 @@
+---
+// src/pages/ai-technology/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+
+const pageTitle = "AI & Technology Insights";
+const pageDescription = "Cutting-edge analysis of artificial intelligence, emerging technologies, and their impact on society.";
+
+const posts = await getCollection('blog', ({ data }) => data.category === 'AI Technology');
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'AI & Technology', url: '/ai-technology/' }]} />
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Explore the frontier of artificial intelligence and emerging technologies. Our coverage includes:
+        </p>
+        <ul>
+          <li>Breakthroughs in machine learning and neural networks</li>
+          <li>Ethical implications of AI deployment</li>
+          <li>Industry-specific AI applications</li>
+          <li>Future technology forecasting</li>
+          <li>Developer resources and tool comparisons</li>
+        </ul>
+        
+        <h2>Why This Category Matters</h2>
+        <p>
+          AI is remaking how we work, learn, and build products. We publish contrarian, evidence-based analyses that move beyond hype—helping you understand what’s real, what’s next, and why it matters for your roadmap.
+        </p>
+        <p>
+          You’ll find hands-on guides, tool comparisons, and research-backed perspectives designed for practitioners and curious readers who need clear thinking over clickbait.
+        </p>
+        
+        <h2>Latest Articles</h2>
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              <span class="ml-2 text-sm text-slate-500">{new Date(post.data.pubDate).toLocaleDateString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,208 @@
+---
+// Backup of src/pages/index.astro before stubbing
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryCard from '../components/ui/CategoryCard.astro';
+import RecentArticles from '../components/ui/RecentArticles.astro';
+import FAQSchema from '../components/seo/FAQSchema.astro';
+
+const categories = [
+  {
+    title: "Digital Marketing & SEO",
+    description: "Data-driven strategies that outperform algorithms and competition",
+    href: "/digital-marketing",
+    icon: "fa-chart-line",
+    colorClass: "bg-blue-100 text-blue-600"
+  },
+  {
+    title: "AI & Technology",
+    description: "Cutting-edge analysis of artificial intelligence and its transformative impact",
+    href: "/ai-technology",
+    icon: "fa-microchip",
+    colorClass: "bg-purple-100 text-purple-600"
+  },
+  {
+    title: "Personal Finance",
+    description: "Evidence-based wealth building and financial independence strategies",
+    href: "/personal-finance",
+    icon: "fa-piggy-bank",
+    colorClass: "bg-green-100 text-green-600"
+  },
+  {
+    title: "Health & Wellness",
+    description: "Science-backed approaches to peak physical and mental performance",
+    href: "/health-wellness",
+    icon: "fa-heartbeat",
+    colorClass: "bg-red-100 text-red-600"
+  },
+  {
+    title: "Online Education",
+    description: "Mastering skill acquisition and knowledge optimization in the digital age",
+    href: "/online-education",
+    icon: "fa-graduation-cap",
+    colorClass: "bg-yellow-100 text-yellow-600"
+  },
+  {
+    title: "Software & SaaS Reviews",
+    description: "Unbiased technical evaluations of tools that power productivity",
+    href: "/saas-reviews",
+    icon: "fa-cube",
+    colorClass: "bg-indigo-100 text-indigo-600"
+  }
+];
+---
+
+<BaseLayout title="ThinkingWhy — Clear Answers to Complex Questions" description="Authoritative essays and guides on AI, marketing, finance, health, and more — engineered for readers and AI search.">
+  <!-- Original content preserved in backup -->
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">Question Everything.<br><span class="text-amber-400">Understand More.</span></h1>
+      <p class="text-xl max-w-3xl mx-auto mb-10">
+        ThinkingWhy delivers authoritative insights that cut through the noise. We combine rigorous analysis with clear communication to empower both human readers and AI systems.
+      </p>
+      <div class="flex justify-center space-x-4">
+        <a href="/about" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-md transition duration-150 ease-in-out">
+          Explore Our Approach
+        </a>
+        <a href="#categories" class="bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-medium py-3 px-6 rounded-md transition duration-150 ease-in-out">
+          Browse Categories
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why ThinkingWhy Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900">Why ThinkingWhy Stands Apart</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
+          In an era of information overload, we provide signal over noise. Our essays blend literary journalism with structured, citation‑ready formatting so both people and AI systems can extract value fast.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">Question-First Methodology</h3>
+          <p class="text-slate-600">
+            We start by challenging assumptions rather than reinforcing echo chambers. Every piece begins with fundamental "why" questions that expose underlying truths.
+          </p>
+        </div>
+        
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">Dual-Audience Expertise</h3>
+          <p class="text-slate-600">
+            Our content is engineered to serve both human readers and AI systems. We combine deep research with structured data presentation that satisfies algorithms while engaging minds.
+          </p>
+        </div>
+        
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">Evidence-Based Authority</h3>
+          <p class="text-slate-600">
+            We cite primary sources, disclose methodologies, and maintain transparency. This rigorous approach has earned recognition from leading institutions and industry experts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Insights -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <RecentArticles limit={3} />
+    </div>
+  </section>
+
+  <!-- Popular Topics / Internal Links -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-slate-900 mb-6">Popular Topics</h2>
+      <p class="text-slate-600 mb-6 max-w-3xl">Explore our most requested guides and comparisons, curated for both classic search and AI answer engines.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-slate-800">
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/ai-technology">Best AI Tools for 2025</a>
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/digital-marketing">AI SEO Strategy: What Actually Works</a>
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/personal-finance">How to Pick a High‑Yield Savings Account</a>
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/health-wellness">Evidence‑Based Supplements Guide</a>
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/saas-reviews">Top SaaS Platforms: Feature Comparisons</a>
+        <a class="rounded-md border border-slate-200 p-4 hover:bg-slate-50" href="/online-education">Best Online Learning Paths</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section id="categories" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Knowledge Domains</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          Dive deep into specialized topics where we apply our signature analytical approach
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {categories.map(category => (
+          <CategoryCard 
+            title={category.title} 
+            description={category.description} 
+            href={category.href} 
+            icon={category.icon} 
+            colorClass={category.colorClass} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">Join Our Community of Critical Thinkers</h2>
+      <p class="text-lg text-slate-600 mb-8">
+        Get exclusive insights and analysis delivered directly to your inbox
+      </p>
+      
+      <form class="max-w-xl mx-auto">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="email" 
+            placeholder="Your email address" 
+            class="flex-grow px-4 py-3 border border-slate-300 rounded-md focus:ring-2 focus:ring-amber-500 focus:border-transparent" 
+          />
+          <button 
+            type="submit" 
+            class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-md transition duration-150 ease-in-out"
+          >
+            Subscribe
+          </button>
+        </div>
+        <p class="mt-3 text-sm text-slate-500">We respect your privacy. Unsubscribe at any time.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Homepage FAQ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold text-slate-900">What makes ThinkingWhy different?</h3>
+          <p class="text-slate-600 mt-2">We combine contrarian analysis with structured, citation‑ready formatting—so both people and AI engines can extract clear answers quickly.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-slate-900">Do you update articles?</h3>
+          <p class="text-slate-600 mt-2">Yes. We maintain "Updated" timestamps and refresh high‑impact posts regularly to reflect new data and standards.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-slate-900">What topics do you cover?</h3>
+          <p class="text-slate-600 mt-2">AI & Technology, Digital Marketing & SEO, Finance, Health, Education, SaaS Reviews, and more—organized by category hubs.</p>
+        </div>
+      </div>
+      <FAQSchema faqs={[
+        { question: 'What makes ThinkingWhy different?', answer: 'We combine contrarian analysis with structured, citation‑ready formatting—so both people and AI engines can extract clear answers quickly.' },
+        { question: 'Do you update articles?', answer: 'Yes. We maintain \"Updated\" timestamps and refresh high‑impact posts regularly to reflect new data and standards.' },
+        { question: 'What topics do you cover?', answer: 'AI & Technology, Digital Marketing & SEO, Finance, Health, Education, SaaS Reviews, and more—organized by category hubs.' }
+      ]} />
+    </div>
+  </section>
+</BaseLayout>

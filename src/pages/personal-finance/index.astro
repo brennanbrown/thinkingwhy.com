@@ -1,0 +1,32 @@
+---
+// src/pages/personal-finance/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Personal Finance & Investing Strategies";
+const pageDescription = "Practical guidance for wealth building, investment management, and financial independence.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Achieve financial clarity and independence with our evidence-based approach to personal finance. We cover:
+        </p>
+        <ul>
+          <li>Investment portfolio strategies</li>
+          <li>Tax optimization techniques</li>
+          <li>Retirement planning frameworks</li>
+          <li>Debt management systems</li>
+          <li>Financial product analysis</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>

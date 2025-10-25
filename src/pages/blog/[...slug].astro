@@ -1,0 +1,38 @@
+---
+// src/pages/blog/[...slug].astro
+import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const allPosts = await getCollection('blog');
+
+// Build a naive related list: same category or overlapping tags
+const related = allPosts
+  .filter(p => p.slug !== post.slug)
+  .map(p => ({ entry: p, score: (
+    (p.data.category === post.data.category ? 2 : 0) +
+    (Array.isArray(p.data.tags) && Array.isArray(post.data.tags)
+      ? p.data.tags.filter((t: string) => post.data.tags.includes(t)).length
+      : 0)
+  )}))
+  .filter(x => x.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 4)
+  .map(x => x.entry);
+
+const { Content } = await post.render();
+---
+
+<BlogPostLayout post={post} content={post.body} related={related}>
+  <Content />
+</BlogPostLayout>

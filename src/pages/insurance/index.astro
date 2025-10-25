@@ -1,0 +1,51 @@
+---
+// src/pages/insurance/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+
+const pageTitle = "Insurance Industry Analysis & Strategies";
+const pageDescription = "Deep dives into insurance products, risk assessment methodologies, and industry innovation.";
+
+const posts = await getCollection('blog', ({ data }) => data.category === 'Insurance');
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Insurance', url: '/insurance/' }]} />
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Navigate the complex insurance landscape with our analytical approach. We examine:
+        </p>
+        <ul>
+          <li>Product innovation</li>
+          <li>Risk modeling techniques</li>
+          <li>Regulatory compliance</li>
+          <li>Market competition analysis</li>
+          <li>Technology disruption</li>
+        </ul>
+        
+        <h2>Why This Category Matters</h2>
+        <p>
+          Insurance sits at the intersection of data, regulation, and real human risk. Our coverage focuses on how AI-driven underwriting, claims automation, and emerging products reshape profitability and customer trust.
+        </p>
+        <p>
+          Expect clear explanations, ethical considerations, and practical frameworks you can use to modernize operations and reduce loss ratios without compromising transparency.
+        </p>
+        
+        <h2>Latest Articles</h2>
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              <span class="ml-2 text-sm text-slate-500">{new Date(post.data.pubDate).toLocaleDateString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

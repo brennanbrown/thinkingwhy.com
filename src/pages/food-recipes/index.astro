@@ -1,0 +1,32 @@
+---
+// src/pages/food-recipes/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Food Science & Recipe Development";
+const pageDescription = "Evidence-based culinary techniques, nutrition-focused recipes, and food industry analysis.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Explore the intersection of culinary art and nutritional science. We cover:
+        </p>
+        <ul>
+          <li>Recipe development methodologies</li>
+          <li>Food chemistry principles</li>
+          <li>Dietary pattern analysis</li>
+          <li>Kitchen technique optimization</li>
+          <li>Food industry trends</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>

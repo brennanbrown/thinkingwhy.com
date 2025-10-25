@@ -1,0 +1,32 @@
+---
+// src/pages/real-estate/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Real Estate Investment Strategies";
+const pageDescription = "Data-driven approaches to property investment, market analysis, and portfolio management.";
+---
+
+<BaseLayout>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Navigate property markets with confidence using our analytical frameworks. We cover:
+        </p>
+        <ul>
+          <li>Market cycle analysis</li>
+          <li>Investment property evaluation</li>
+          <li>Financing strategies</li>
+          <li>Tax optimization</li>
+          <li>Emerging market opportunities</li>
+        </ul>
+        
+        <h2>Featured Articles</h2>
+        
+        <!-- Article list component will go here -->
+      </div>
+    </div>
+  </section>
+</BaseLayout>

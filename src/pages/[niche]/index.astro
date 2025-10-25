@@ -1,0 +1,31 @@
+---
+// src/pages/[niche]/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const { niche } = Astro.params;
+
+// Get all posts for this niche
+const posts = await getCollection(niche);
+
+// Sort by publication date
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout>
+  <h1>{niche.replace(/-/g, ' ')}</h1>
+  
+  <div class="posts-grid">
+    {sortedPosts.map(post => (
+      <article class="post-card">
+        <a href={`/${niche}/${post.slug}`}>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <span>Read more</span>
+        </a>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

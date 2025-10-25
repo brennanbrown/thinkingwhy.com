@@ -1,0 +1,51 @@
+---
+// src/pages/luxury-lifestyle/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+
+const pageTitle = "Luxury Lifestyle & Premium Experiences";
+const pageDescription = "Analysis of high-end markets, luxury consumer psychology, and premium experience design.";
+
+const posts = await getCollection('blog', ({ data }) => data.category === 'Luxury & Lifestyle');
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Luxury & Lifestyle', url: '/luxury-lifestyle/' }]} />
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Explore the economics and psychology of luxury. We examine:
+        </p>
+        <ul>
+          <li>Luxury brand strategy</li>
+          <li>High-net-worth consumer behavior</li>
+          <li>Premium experience design</li>
+          <li>Luxury market trends</li>
+          <li>Wealth management principles</li>
+        </ul>
+        
+        <h2>Why This Category Matters</h2>
+        <p>
+          Luxury purchasing is as much identity and narrative as it is product. We analyze how AI‑powered clienteling, scarcity mechanics, and heritage storytelling drive lifetime value—and where automation risks eroding brand equity.
+        </p>
+        <p>
+          Expect research‑driven briefs, market maps, and practical playbooks for founders, marketers, and luxury operators building unforgettable experiences.
+        </p>
+        
+        <h2>Latest Articles</h2>
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              <span class="ml-2 text-sm text-slate-500">{new Date(post.data.pubDate).toLocaleDateString()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

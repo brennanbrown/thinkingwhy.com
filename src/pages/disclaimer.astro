@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Disclaimer';
+const description = 'Important disclosures and limitations of liability for ThinkingWhy content.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-6">{title}</h1>
+      <p class="text-slate-700 mb-4">The information provided on ThinkingWhy is for educational purposes only. While we strive for accuracy and cite sources where applicable, we do not guarantee completeness or suitability for any purpose.</p>
+      <p class="text-slate-700 mb-4">ThinkingWhy and its authors are not responsible for any losses or damages arising from the use of the content. Readers should conduct their own due diligence and consult qualified professionals when appropriate.</p>
+      <p class="text-slate-700">If you have questions about this disclaimer, please contact <a class="text-amber-700" href="mailto:thinkingwhy@brennanbrown.ca">thinkingwhy@brennanbrown.ca</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
