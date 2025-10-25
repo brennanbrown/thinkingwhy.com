@@ -1,0 +1,56 @@
+---
+// src/components/seo/ArticleSchema.astro
+import StructuredData from './StructuredData.astro';
+
+export interface Props {
+  post: any;
+  url: string;
+}
+
+const { post, url } = Astro.props;
+
+const normalizeDate = (d: any) => {
+  try {
+    return (d instanceof Date ? d : new Date(d)).toISOString();
+  } catch {
+    return undefined;
+  }
+};
+
+const authorObj = typeof post.author === 'string' ? { name: post.author } : (post.author || {});
+const hero = typeof post.heroImage === 'string' ? { src: post.heroImage, alt: post.title } : (post.heroImage || {});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.description,
+  "image": {
+    "@type": "ImageObject",
+    "url": hero.src,
+    "alt": hero.alt
+  },
+  "author": {
+    "@type": "Person",
+    "name": authorObj.name,
+    "jobTitle": authorObj.credentials,
+    "description": authorObj.bio
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ThinkingWhy",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/logo.png"
+    }
+  },
+  "datePublished": normalizeDate(post.pubDate),
+  "dateModified": normalizeDate(post.updatedDate) || normalizeDate(post.pubDate),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  }
+};
+---
+
+<StructuredData data={articleSchema} />

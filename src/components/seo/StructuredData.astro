@@ -1,0 +1,14 @@
+---
+// src/components/seo/StructuredData.astro
+import type { BlogPost } from '../../types';
+
+export interface Props {
+  data: object;
+}
+
+const { data } = Astro.props;
+---
+
+<script type="application/ld+json">
+  {JSON.stringify(data)}
+</script>

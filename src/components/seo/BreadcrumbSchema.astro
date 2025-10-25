@@ -1,0 +1,28 @@
+---
+// src/components/seo/BreadcrumbSchema.astro
+import StructuredData from './StructuredData.astro';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+export interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+};
+---
+
+<StructuredData data={breadcrumbSchema} />

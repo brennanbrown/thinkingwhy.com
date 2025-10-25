@@ -1,0 +1,25 @@
+---
+// src/components/seo/WebsiteSchema.astro
+import StructuredData from './StructuredData.astro';
+
+export interface Props {
+  url: string;
+  name: string;
+}
+
+const { url, name } = Astro.props;
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": url,
+  "name": name,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${url}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<StructuredData data={websiteSchema} />
