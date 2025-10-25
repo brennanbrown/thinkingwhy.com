@@ -1,0 +1,49 @@
+---
+// src/pages/terms-of-service.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+const pageTitle = 'Terms of Service';
+const pageDescription = 'The terms governing your use of ThinkingWhy, including content, disclaimers, and limitations.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[
+    { name: 'Home', url: '/' },
+    { name: 'Terms of Service', url: '/terms-of-service' }
+  ]} />
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      <div class="prose prose-lg max-w-none">
+        <p>Last updated: {new Date().toISOString().slice(0,10)}</p>
+
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing or using this website, you agree to be bound by these Terms. If you do not agree, do not use the site.</p>
+
+        <h2>Use of Content</h2>
+        <p>All content is for informational purposes only and does not constitute professional advice. You may link to articles with attribution.</p>
+
+        <h2>No Professional Advice</h2>
+        <p>Content related to finance, health, technology, or law is provided for educational purposes and should not be relied upon as professional advice. Consult a qualified professional.</p>
+
+        <h2>User Conduct</h2>
+        <ul>
+          <li>Do not misuse the site or attempt to interfere with its operation.</li>
+          <li>Do not copy content without permission beyond fair use.</li>
+        </ul>
+
+        <h2>Third-Party Links</h2>
+        <p>We may link to third-party sites. We are not responsible for their content or practices.</p>
+
+        <h2>Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, ThinkingWhy and its contributors are not liable for any damages arising from your use of the site.</p>
+
+        <h2>Changes to Terms</h2>
+        <p>We may update these Terms. Continued use constitutes acceptance of the revised Terms.</p>
+
+        <h2>Contact</h2>
+        <p>Questions? Please <a href="/contact">contact us</a>.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

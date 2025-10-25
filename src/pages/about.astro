@@ -1,0 +1,101 @@
+---
+// src/pages/about.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+
+const pageTitle = "About ThinkingWhy";
+const pageDescription = "Learn about our mission, our team, and why we question everything.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <BreadcrumbSchema items={[
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' }
+  ]} />
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About ThinkingWhy",
+    "url": "https://thinkingwhy.com/about",
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "/images/authors/brennan-brown.JPG"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "ThinkingWhy"
+    },
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Brennan Kenneth Brown",
+      "jobTitle": "Founder & Chief Question Asker",
+      "image": "/images/authors/brennan-brown.JPG",
+      "url": "https://thinkingwhy.com/about",
+      "sameAs": [
+        "https://twitter.com/brennanbrown",
+        "https://linkedin.com/in/brennanbrown",
+        "https://brennanbrown.ca"
+      ]
+    }
+  })}</script>
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ThinkingWhy",
+    "url": "https://thinkingwhy.com",
+    "logo": "/favicons/favicon-256x256.png",
+    "sameAs": [
+      "https://twitter.com/brennanbrown",
+      "https://linkedin.com/in/brennanbrown",
+      "https://brennanbrown.ca"
+    ]
+  })}</script>
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h1 class="text-4xl font-bold text-slate-900 mb-8">{pageTitle}</h1>
+      
+      <div class="prose prose-lg max-w-none">
+        <p>
+          ThinkingWhy was founded on a simple premise: that the best insights come from questioning assumptions. 
+          In a world of information overload, we cut through the noise by focusing on the deeper "why" behind technology, 
+          finance, health, and culture.
+        </p>
+        
+        <h2>Our Mission</h2>
+        <p>
+          To provide readers with thoughtful, well-researched content that challenges conventional wisdom and provides 
+          actionable insights. We believe that understanding the fundamental principles behind any subject leads to 
+          better decision-making and innovation.
+        </p>
+        
+        <h2>Our Team</h2>
+        
+        <div class="flex items-start my-8">
+          <div class="mr-6">
+            <img src="/images/authors/brennan-brown.JPG" alt="Brennan Kenneth Brown" class="w-32 h-32 rounded-full object-cover object-center" />
+          </div>
+          <div>
+            <h3 class="mt-0">Brennan Kenneth Brown</h3>
+            <p class="text-lg">Founder & Chief Question Asker</p>
+            <p>
+              Brennan is a Queer Métis writer and community builder with a passion for exploring the intersections 
+              of technology, culture, and human experience. With a background in creative leadership and technical writing, 
+              he brings a unique perspective to every topic.
+            </p>
+          </div>
+        </div>
+        
+        <h2>Our Approach</h2>
+        <p>
+          Every piece of content we create follows our core principles:
+        </p>
+        <ul>
+          <li><strong>Question First</strong>: We start by challenging assumptions</li>
+          <li><strong>Research Deeply</strong>: We dive into primary sources and data</li>
+          <li><strong>Connect Dots</strong>: We look for patterns across disciplines</li>
+          <li><strong>Practical Insights</strong>: We focus on actionable takeaways</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
