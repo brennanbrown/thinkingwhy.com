@@ -1,0 +1,24 @@
+---
+// src/components/ads/FooterAd.astro
+import AdSenseUnit from './AdSenseUnit.astro';
+
+interface Props {
+  lazyLoad?: boolean;
+}
+
+const { lazyLoad = true } = Astro.props;
+---
+
+<AdSenseUnit 
+  slot="footer_ad" 
+  className="footer-ad" 
+  adFormat="horizontal" 
+  lazyLoad={lazyLoad} 
+/>
+
+<style>
+  .footer-ad {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>

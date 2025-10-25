@@ -1,0 +1,32 @@
+---
+// src/components/ads/InContentAd.astro
+import AdSenseUnit from './AdSenseUnit.astro';
+
+interface Props {
+  position: 'top' | 'middle' | 'bottom';
+  lazyLoad?: boolean;
+}
+
+const { position, lazyLoad = true } = Astro.props;
+---
+
+<AdSenseUnit 
+  slot={`incontent_${position}`} 
+  className={`incontent-ad incontent-${position}`} 
+  adFormat="rectangle" 
+  lazyLoad={lazyLoad} 
+/>
+
+<style>
+  .incontent-ad {
+    margin: 2rem auto;
+  }
+  
+  .incontent-top {
+    margin-top: 0;
+  }
+  
+  .incontent-bottom {
+    margin-bottom: 0;
+  }
+</style>

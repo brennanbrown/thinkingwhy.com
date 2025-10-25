@@ -1,0 +1,101 @@
+---
+// src/components/ads/AdSenseUnit.astro
+interface Props {
+  slot: string;
+  className?: string;
+  adFormat?: 'auto' | 'rectangle' | 'horizontal';
+  lazyLoad?: boolean;
+}
+
+const { slot, className = '', adFormat = 'auto', lazyLoad = true } = Astro.props;
+const isDev = import.meta.env.ENV === 'development';
+---
+
+{isDev ? (
+  <div class={`adsense-wrapper dev-muted ${className}`} data-ad-slot={slot} />
+) : (
+  <>
+    <head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous" defer></script>
+    </head>
+    <div class={`adsense-wrapper ${className}`} data-ad-slot={slot}>
+      {lazyLoad ? (
+        <div class="ad-placeholder" data-ad-lazy>
+          <script>
+            // Global ad client ID
+            window.ADSENSE_CLIENT_ID = 'ca-pub-XXXXXXXXXXXXXXXX';
+            
+            // Intersection Observer for lazy loading
+            function loadAd(slot) {
+              const adElement = document.createElement('ins');
+              adElement.className = 'adsbygoogle';
+              adElement.style.display = 'block';
+              adElement.dataset.adClient = window.ADSENSE_CLIENT_ID;
+              adElement.dataset.adSlot = slot;
+              adElement.dataset.adFormat = adFormat;
+              
+              const placeholder = document.querySelector(`[data-ad-slot="${slot}"] .ad-placeholder`);
+              placeholder.replaceWith(adElement);
+              
+              // Load the ad
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  loadAd(entry.target.dataset.adSlot);
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.1 });
+            
+            observer.observe(document.querySelector('[data-ad-lazy]'));
+          </script>
+        </div>
+      ) : (
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot={slot}
+             data-ad-format={adFormat}></ins>
+      )}
+    </div>
+  </>
+)}
+
+<style>
+  .adsense-wrapper {
+    margin: 1rem 0;
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ad-placeholder {
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    color: #666;
+  }
+  
+  .dev-muted {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .adsense-wrapper {
+      margin: 0.5rem 0;
+      min-height: 80px;
+    }
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+// src/components/ads/SidebarAd.astro
+import AdSenseUnit from './AdSenseUnit.astro';
+
+interface Props {
+  lazyLoad?: boolean;
+}
+
+const { lazyLoad = true } = Astro.props;
+---
+
+<AdSenseUnit 
+  slot="sidebar_ad" 
+  className="sidebar-ad" 
+  adFormat="vertical" 
+  lazyLoad={lazyLoad} 
+/>
+
+<style>
+  .sidebar-ad {
+    position: sticky;
+    top: 1rem;
+    margin-left: 2rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .sidebar-ad {
+      display: none;
+    }
+  }
+</style>

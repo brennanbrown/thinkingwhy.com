@@ -1,0 +1,17 @@
+---
+// src/components/analytics/Analytics.astro
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+<!-- Load analytics only in browser environment -->
+{typeof window !== 'undefined' && gaId && (
+  <script>
+    const GA_ID = "{gaId}";
+    (async () => {
+      const { setupGoogleAnalytics } = await import('../../utils/analytics');
+      if (setupGoogleAnalytics) {
+        setupGoogleAnalytics(GA_ID);
+      }
+    })();
+  </script>
+)}
