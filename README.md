@@ -22,15 +22,6 @@ Multi-niche authority blog built with Astro 5.x, optimized for Google AdSense an
 - **Blog UX**: TOC, Reading Time, Author Box, Related Posts
 - **Policy Pages**: About, Privacy Policy, Terms of Service, Contact (with Formspree fallback)
 
-## Funding
-
-- Ko‑fi: https://ko-fi.com/brennan
-- GitHub Sponsors: https://github.com/sponsors/brennanbrown
-
-## Attribution
-
-- A Berry House project — https://berryhouse.ca
-
 ## Getting Started
 
 ```bash
