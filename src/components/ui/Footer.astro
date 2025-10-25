@@ -1,0 +1,88 @@
+---
+// src/components/ui/Footer.astro
+import StructuredData from '../seo/StructuredData.astro';
+---
+
+<footer class="bg-slate-900 text-white py-12">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-bold font-heading mb-4">ThinkingWhy</h3>
+        <p class="text-slate-300 mb-4">Question Everything. Understand More.</p>
+        <div class="mb-6 bg-slate-800/60 p-4 rounded-lg border border-slate-800">
+          <p class="text-sm text-slate-200">We publish contrarian, evidence‑based essays and guides spanning AI & Technology, Digital Marketing & SEO, Finance, Health, and more. Our content blends literary journalism with structured, citation‑ready formatting—so both people and AI systems can extract clear answers quickly.</p>
+        </div>
+        <div class="space-y-1 text-sm text-slate-300">
+          <p><strong>Email:</strong> <a class="hover:text-white" href="mailto:thinkingwhy@brennanbrown.ca">thinkingwhy@brennanbrown.ca</a></p>
+          <p><strong>Location:</strong> Calgary, Canada</p>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-slate-300 hover:text-white transition-colors">Home</a></li>
+          <li><a href="/about" class="text-slate-300 hover:text-white transition-colors">About</a></li>
+          <li><a href="/contact" class="text-slate-300 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/privacy-policy" class="text-slate-300 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms-of-service" class="text-slate-300 hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/sitemap.xml" class="text-slate-300 hover:text-white transition-colors">Sitemap</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Categories</h4>
+        <ul class="space-y-2">
+          <li><a href="/digital-marketing" class="text-slate-300 hover:text-white transition-colors">Digital Marketing</a></li>
+          <li><a href="/ai-technology" class="text-slate-300 hover:text-white transition-colors">AI & Technology</a></li>
+          <li><a href="/personal-finance" class="text-slate-300 hover:text-white transition-colors">Personal Finance</a></li>
+          <li><a href="/health-wellness" class="text-slate-300 hover:text-white transition-colors">Health & Wellness</a></li>
+          <li><a href="/saas-reviews" class="text-slate-300 hover:text-white transition-colors">Software & SaaS Reviews</a></li>
+          <li><a href="/luxury-lifestyle" class="text-slate-300 hover:text-white transition-colors">Luxury & Lifestyle</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="/terms-of-service" class="text-slate-300 hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/privacy-policy" class="text-slate-300 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/cookie-policy" class="text-slate-300 hover:text-white transition-colors">Cookie Policy</a></li>
+          <li><a href="/disclaimer" class="text-slate-300 hover:text-white transition-colors">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-slate-800 text-sm text-slate-400">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+        <p> 2025 ThinkingWhy. All rights reserved.</p>
+        <div class="space-x-4">
+          <a class="hover:text-white" href="https://github.com/brennanbrown/thinkingwhy.com" rel="noopener">GitHub Repo</a>
+          <a class="hover:text-white" href="https://berryhouse.ca" rel="noopener">A berryhouse.ca project</a>
+        </div>
+      </div>
+      <div class="mt-3 text-xs">
+        <span>Code licensed <a class="underline hover:text-white" href="https://opensource.org/licenses/MIT" rel="noopener">MIT</a>. </span>
+        <span>Content licensed <a class="underline hover:text-white" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">CC BY‑NC‑SA 4.0</a>.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Organization Schema for footer -->
+  <StructuredData data={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ThinkingWhy",
+    "url": "https://thinkingwhy.com",
+    "logo": "/favicons/favicon-256x256.png",
+    "sameAs": [
+      "https://twitter.com/", 
+      "https://www.linkedin.com/"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "thinkingwhy@brennanbrown.ca"
+    }]
+  }} />
+</footer>

@@ -1,0 +1,27 @@
+---
+// src/components/ui/CategoryCard.astro
+const { title, description, href, icon, colorClass } = Astro.props;
+---
+
+<article class="bg-slate-50 rounded-lg overflow-hidden transition duration-150 ease-in-out hover:shadow-lg">
+  <div class="p-6">
+    <div class="flex items-center mb-4">
+      <div class={`mr-4 p-2 rounded-md ${colorClass || 'bg-amber-100 text-amber-600'}`}>
+        <i class={`fas ${icon} text-lg`}></i>
+      </div>
+      <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
+    </div>
+    <p class="text-slate-600 mb-6">
+      {description}
+    </p>
+    <a 
+      href={href}
+      class="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium"
+    >
+      Explore Insights
+      <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</article>

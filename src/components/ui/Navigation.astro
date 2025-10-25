@@ -1,0 +1,35 @@
+---
+import { FEATURED_NICHES, NICHE_DETAILS } from '../../utils/constants';
+---
+
+<nav class="flex flex-wrap items-center gap-4 text-sm text-slate-300">
+  <a href="/about" class="transition hover:text-white">About</a>
+  <a href="/contact" class="transition hover:text-white">Contact</a>
+  <a href="/privacy-policy" class="transition hover:text-white">Privacy</a>
+  <a href="/terms-of-service" class="transition hover:text-white">Terms</a>
+  <div class="relative group">
+    <button class="flex items-center gap-1 transition hover:text-white">
+      Niches
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.166l3.71-3.936a.75.75 0 1 1 1.08 1.04l-4.24 4.5a.75.75 0 0 1-1.08 0l-4.24-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <div class="invisible absolute left-0 top-full z-20 mt-2 w-64 rounded-lg border border-slate-800 bg-slate-900/95 p-4 opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100">
+      <ul class="space-y-2 text-sm">
+        {FEATURED_NICHES.map((niche) => (
+          <li>
+            <a href={`/${niche}`} class="block rounded px-2 py-1 transition hover:bg-slate-800 hover:text-white">
+              <span class="font-medium text-white">{NICHE_DETAILS[niche].title}</span>
+              <p class="text-xs text-slate-400">{NICHE_DETAILS[niche].summary}</p>
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="/topics" class="block rounded px-2 py-1 text-center text-xs uppercase tracking-wide text-slate-400 transition hover:bg-slate-800 hover:text-white">
+            View all niches
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
