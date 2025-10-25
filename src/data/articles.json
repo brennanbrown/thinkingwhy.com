@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Why Current AI Models Can't Make Scientific Breakthroughs",
+    "description": "Thomas Wolf explains why ChatGPT and current AI systems are designed to affirm consensus, making breakthroughs impossible.",
+    "heroImage": {
+      "src": "/images/articles/ai-breakthroughs.jpg",
+      "alt": "AI Breakthroughs"
+    },
+    "slug": "ai-technology/ai-breakthroughs"
+  },
+  {
+    "title": "The Digital Marketing Myth That's Costing You Revenue",
+    "description": "Higher traffic doesn't equal higher revenue. We analyze the data behind engagement quality.",
+    "heroImage": {
+      "src": "/images/articles/digital-marketing-myths.jpg",
+      "alt": "Digital Marketing Myths"
+    },
+    "slug": "digital-marketing/myths"
+  },
+  {
+    "title": "Why Passive Income Is a Dangerous Myth",
+    "description": "The truth about building sustainable income streams in the digital age.",
+    "heroImage": {
+      "src": "/images/articles/passive-income-myth.jpg",
+      "alt": "Passive Income Myth"
+    },
+    "slug": "make-money-online/passive-income-myth"
+  }
+]
