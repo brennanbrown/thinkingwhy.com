@@ -2,13 +2,15 @@
 title: "The High-Yield Savings Account Trap Nobody Warns You About"
 description: "Why chasing the highest APY might actually cost you money—and what savvy savers do instead."
 pubDate: 2025-10-23
+updatedDate: 2025-10-26
 author: "Brennan Brown"
 category: "Personal Finance"
 tags: ["savings", "interest rates", "banking", "financial planning"]
 featured: true
 heroImage:
   src: "/images/blog/savings-trap.jpg"
-  alt: "Person reviewing bank statements with calculator"
+  alt: "Person reviewing bank statements with calculator and financial documents on desk"
+  credit: "Photo by Mikhail Nilov on Pexels (CC0)"
 seo:
   focusKeyword: "high-yield savings account"
   keywords: ["high-yield savings", "APY comparison", "savings strategy"]
@@ -105,7 +107,7 @@ Every single one of these has 10–100x the impact of switching savings accounts
 
 ## The Psychological Cost Nobody Measures
 
-Financial journalist Morgan Housel calls this "the paradox of precision":
+Financial journalist Morgan Housel calls this "the paradox of precision" (Housel, 2020):
 
 > "We obsess over optimizing the 2% we can measure and ignore the 98% that actually matters."
 
@@ -133,3 +135,11 @@ The goal isn't to squeeze every basis point from your savings. The goal is to bu
 - [Why Time is Your Most Valuable Asset](#)
 - [The Savings Rate Paradox](#)
 - [How to Negotiate a 20% Raise](#)
+
+## References
+
+Housel, M. (2020). *The psychology of money: Timeless lessons on wealth, greed, and happiness*. Harriman House.
+
+Federal Deposit Insurance Corporation (FDIC). (2024). *National rates and rate caps*. https://www.fdic.gov/national-rates-and-rate-caps
+
+Internal Revenue Service (IRS). (2024). *Topic No. 403, Interest received*. https://www.irs.gov/taxtopics/tc403

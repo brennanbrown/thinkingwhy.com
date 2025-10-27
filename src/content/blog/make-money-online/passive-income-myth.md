@@ -2,13 +2,15 @@
 title: "The Passive Income Lie: What 3 Years of 'Autopilot' Income Actually Looked Like"
 description: "Behind the scenes of building rental properties, digital products, and dividend portfolios—the work nobody shows you."
 pubDate: 2025-10-20
+updatedDate: 2025-10-26
 author: "Brennan Brown"
 category: "Make Money Online"
 tags: ["passive income", "side hustles", "entrepreneurship", "financial independence"]
 featured: true
 heroImage:
   src: "/images/blog/passive-income-myth.jpg"
-  alt: "Person working late on laptop with financial charts"
+  alt: "Person working late on laptop with financial charts and documents spread across desk"
+  credit: "Photo by Andrea Piacquadio on Pexels (CC0)"
 seo:
   focusKeyword: "passive income reality"
   keywords: ["passive income truth", "side hustle", "financial independence"]
@@ -218,3 +220,13 @@ But anyone promising "autopilot income in 90 days" is selling you a dream, not a
 - [How I Built a $30K/Year Course (The Unsexy Truth)](#)
 - [Real Estate Investing for Beginners: What I Wish I Knew](#)
 - [The Simple Path to Wealth (Dividends and Index Funds)](#)
+
+## References
+
+Airbnb. (2024). *Host resources and best practices*. https://www.airbnb.com/resources/hosting-homes
+
+Collins, J. L. (2016). *The simple path to wealth: Your road map to financial independence and a rich, free life*. CreateSpace.
+
+Vanguard. (2024). *Dividend yield and total return data*. https://investor.vanguard.com/investment-products/etfs/vym
+
+Wheelwright, T. (2022). *Tax-free wealth: How to build massive wealth by permanently lowering your taxes* (3rd ed.). RDA Press.
