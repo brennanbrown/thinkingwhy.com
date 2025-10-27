@@ -1,8 +1,6 @@
 ---
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
-import HeaderAd from '../components/ads/HeaderAd.astro';
-import FooterAd from '../components/ads/FooterAd.astro';
 import WebsiteSchema from '../components/seo/WebsiteSchema.astro';
 import Analytics from '../components/analytics/Analytics.astro';
 import '../styles/global.css';
@@ -20,8 +18,7 @@ const metaTitle = title ? `${title} | ThinkingWhy` : 'ThinkingWhy - Question Eve
 const metaDescription = description || 'ThinkingWhy explores the deeper questions behind technology, finance, health, and life—clear answers to complex topics.';
 const ogImageDefault = '/favicons/favicon-256x256.png';
 const ogImageMeta = ogImage || ogImageDefault;
-const adsClient = import.meta.env.PUBLIC_ADSENSE_ID;
-const adsAccount = adsClient || 'ca-pub-3055500016021139';
+const adsClient = import.meta.env.PUBLIC_ADSENSE_ID; // expected format: ca-pub-XXXXXXXXXXXXXXX
 ---
 
 <!DOCTYPE html>
@@ -45,7 +42,7 @@ const adsAccount = adsClient || 'ca-pub-3055500016021139';
   <title>{metaTitle}</title>
   <meta name="description" content={metaDescription} />
   <link rel="canonical" href={canonical} />
-  <meta name="google-adsense-account" content={adsAccount} />
+  {adsClient && (<meta name="google-adsense-account" content={adsClient} />)}
   
   <!-- Open Graph -->
   <meta property="og:site_name" content="ThinkingWhy" />
@@ -81,16 +78,17 @@ const adsAccount = adsClient || 'ca-pub-3055500016021139';
     }
   </style>
   <WebsiteSchema url={(Astro.site && Astro.site.toString()) || 'https://thinkingwhy.com'} name="ThinkingWhy" />
-  <script
-    async
-    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsAccount}`}
-    crossorigin="anonymous">
-  </script>
+  {adsClient && (
+    <script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`}
+      crossorigin="anonymous">
+    </script>
+  )}
  </head>
 <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
   <div class="min-h-screen flex flex-col">
     <Header />
-    <HeaderAd />
     
     <main class="flex-1 bg-white dark:bg-slate-950">
       <div class="mx-auto w-full max-w-6xl px-5 py-8 md:py-10">
@@ -98,7 +96,6 @@ const adsAccount = adsClient || 'ca-pub-3055500016021139';
       </div>
     </main>
     
-    <FooterAd />
     <Footer />
   </div>
   <Analytics />

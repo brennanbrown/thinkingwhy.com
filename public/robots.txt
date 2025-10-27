@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://thinkingwhy.com/sitemap.xml
+Sitemap: https://thinkingwhy.com/sitemap-index.xml
